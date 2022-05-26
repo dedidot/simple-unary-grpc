@@ -15,3 +15,8 @@ make build
 // Process
 main.go -> server.go -> service.go -> repository.go
 ```
+
+#### Test
+```
+Please read this article https://medium.com/easyread/testing-your-grpc-using-postman-5167347f26dd
+```

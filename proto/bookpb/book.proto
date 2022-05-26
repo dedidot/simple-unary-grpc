@@ -1,0 +1,27 @@
+syntax = "proto3";
+package book;
+option go_package = "github.com/dedidot/grpc-book/proto/bookpb";
+
+message Book {
+  string id = 1;
+  string title = 2;
+  string author = 3;
+  bool is_read = 4;
+}
+
+message GetBookRequest { string id = 1; }
+message AddBookRequest { Book book = 1; }
+message UpdateBookRequest { Book book = 1; }
+message DeleteBookRequest { string id = 1; }
+
+message GetBookResponse { bool status = 1; Book data = 2; }
+message AddBookResponse { bool status = 1; Book data = 2; }
+message UpdateBookResponse { bool status = 1; Book data = 2; }
+message DeleteBookResponse { bool status = 1; }
+
+service BookService {
+  rpc GetBookData (GetBookRequest) returns (GetBookResponse);
+  rpc AddBookData (AddBookRequest) returns (AddBookResponse);
+  rpc UpdateBookData (UpdateBookRequest) returns (UpdateBookResponse);
+  rpc DeleteBookData (DeleteBookRequest) returns (DeleteBookResponse);
+}
